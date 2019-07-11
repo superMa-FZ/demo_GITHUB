@@ -1,0 +1,54 @@
+{
+	"kandian": [{
+			"videoUrl": "https://192.168.43.99:1443/demoserver/video/xx1.mp4",
+			"videoJianjie": "外国小哥做了这样一件事儿，大家都惊呆了....",
+			"weiZhi": "0",
+			"yongHu": "搞笑剪辑",
+			"beijin": "http://192.168.43.99:1443/demoserver/img/m2.jpg",
+
+			"videoUrl2": "http://192.168.43.99:1443/demoserver/video/xx1.mp4",
+			"videoJianjie2": "外国小哥做了这样一件事儿，大家都惊呆了....",
+			"weiZhi2": "1",
+			"yongHu2": "搞笑剪辑",
+			"beijin2": "http://192.168.43.99:1443/demoserver/img/m1.jpg",
+
+			"videoUrl3": "http://192.168.43.99:1443/demoserver/video/xx1.mp4",
+			"videoJianjie3": "外国小哥做了这样一件事儿，大家都惊呆了....",
+			"weiZhi3": "2",
+			"beijin3": "http://192.168.43.99:1443/demoserver/img/m3.jpg",
+
+			"videoUrl4": "http://192.168.43.99:1443/demoserver/video/xx1.mp4",
+			"videoJianjie4": "外国小哥做了这样一件事儿，大家都惊呆了....",
+			"weiZhi4": "3",
+			"beijin4": "http://192.168.43.99:1443/demoserver/img/m4.jpg"
+
+		},
+		{
+			"videoUrl": "http://192.168.43.99:1443/demoserver/video/xx1.mp4",
+			"videoJianjie": "外国小哥做了这样一件事儿，大家都惊呆了....",
+			"weiZhi": "4",
+			"yongHu": "搞笑剪辑",
+			"beijin": "http://192.168.43.99:1443/demoserver/img/m5.jpg",
+
+			"videoUrl2": "http://192.168.43.99:1443/demoserver/video/xx1.mp4",
+			"videoJianjie2": "外国小哥做了这样一件事儿，大家都惊呆了....",
+			"weiZhi2": "5",
+			"yongHu2": "搞笑剪辑",
+			"beijin2": "http://192.168.43.99:1443/demoserver/img/m6.jpg",
+
+			"videoUrl3": "http://192.168.43.99:1443/demoserver/video/xx1.mp4",
+			"videoJianjie3": "外国小哥做了这样一件事儿，大家都惊呆了....",
+			"weiZhi3": "6",
+			"beijin3": "http://192.168.43.99:1443/demoserver/img/m7.jpg",
+
+			"videoUrl4": "http://192.168.43.99:1443/demoserver/video/xx1.mp4",
+			"videoJianjie4": "外国小哥做了这样一件事儿，大家都惊呆了....",
+			"weiZhi4": "7",
+			"beijin4": "http://192.168.43.99:1443/demoserver/img/m8.jpg"
+
+		}
+
+
+	]
+
+}

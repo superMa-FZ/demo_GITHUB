@@ -1,0 +1,151 @@
+{
+	"slider": [
+		"http://192.168.43.99:8848/demoserver/img/1.jpg",
+		"http://192.168.43.99:8848/demoserver/img/2.jpg",
+		"http://192.168.43.99:8848/demoserver/img/3.jpg"
+	],
+	"hotingMovies": [{
+			"videoUrl": "http://192.168.43.99:8848/demoserver/video/mov.mp4",
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m1.jpg",
+			"videoName": "大话西游"
+		},
+		{
+			"videoUrl": "http://192.168.43.99:8848/demoserver/video/movie.mp4",
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m2.jpg",
+			"videoName": "金刚2"
+		},
+		{
+			"videoUrl": "",
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m3.jpg",
+			"videoName": "少年"
+		},
+		{
+			"videoUrl": "",
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m4.jpg",
+			"videoName": "钢铁侠3"
+		}
+	],
+	"kkk": [{
+			"videoUrl": "",
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m5.jpg",
+			"videoName": "冰雪奇缘"
+		},
+		{
+			"videoUrl": "",
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m6.jpg",
+			"videoName": "进击的巨人"
+		},
+		{
+			"videoUrl": "",
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m7.jpg",
+			"videoName": "龙猫5"
+		},
+		{
+			"videoUrl": "",
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m8.jpg",
+			"videoName": "暮光之城"
+		}
+	],
+	"guankanlishi": [{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m1.jpg",
+			"videoName": "大话西游",
+			"shengyutime": "剩余 27:01"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m8.jpg",
+			"videoName": "暮光之城",
+			"shengyutime": "剩余 17:11"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m6.jpg",
+			"videoName": "进击的巨人",
+			"shengyutime": "剩余 03:05"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m7.jpg",
+			"videoName": "龙猫5",
+			"shengyutime": "剩余 01:12:31"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m5.jpg",
+			"videoName": "冰雪奇缘",
+			"shengyutime": "剩余 43:05"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m5.jpg",
+			"videoName": "冰雪奇缘",
+			"shengyutime": "剩余 43:05"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m5.jpg",
+			"videoName": "冰雪奇缘",
+			"shengyutime": "剩余 43:05"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m5.jpg",
+			"videoName": "冰雪奇缘",
+			"shengyutime": "剩余 43:05"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m5.jpg",
+			"videoName": "冰雪奇缘",
+			"shengyutime": "剩余 43:05"
+		}
+	],
+		"xiazai": [{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m1.jpg",
+			"videoName": "大话西游",
+			"shengyutime": "剩余 27:01"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m8.jpg",
+			"videoName": "暮光之城",
+			"shengyutime": "剩余 17:11"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m6.jpg",
+			"videoName": "进击的巨人",
+			"shengyutime": "剩余 03:05"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m7.jpg",
+			"videoName": "龙猫5",
+			"shengyutime": "剩余 01:12:31"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m5.jpg",
+			"videoName": "冰雪奇缘",
+			"shengyutime": "剩余 43:05"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m5.jpg",
+			"videoName": "冰雪奇缘",
+			"shengyutime": "剩余 43:05"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m5.jpg",
+			"videoName": "冰雪奇缘",
+			"shengyutime": "剩余 43:05"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m5.jpg",
+			"videoName": "冰雪奇缘",
+			"shengyutime": "剩余 43:05"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m5.jpg",
+			"videoName": "冰雪奇缘",
+			"shengyutime": "剩余 43:05"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m5.jpg",
+			"videoName": "冰雪奇缘",
+			"shengyutime": "剩余 43:05"
+		},
+		{
+			"imgUrl": "http://192.168.43.99:8848/demoserver/img/m5.jpg",
+			"videoName": "冰雪奇缘",
+			"shengyutime": "剩余 43:05"
+		}
+	]
+}

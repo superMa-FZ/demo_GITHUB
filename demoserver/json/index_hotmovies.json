@@ -1,0 +1,32 @@
+{
+	"slider": [
+		"http://192.168.43.169:8848/demoserver/img/n1.jpg",
+		"http://192.168.43.169:8848/demoserver/img/n2.jpg",
+		"http://192.168.43.169:8848/demoserver/img/n3.jpg"
+	],
+	"hotingMovies": [{
+			"videoUrl": "http://192.168.43.169:8848/demoserver/video/xuebao.mp4",
+			"imgUrl": "http://192.168.43.169:8848/demoserver/img/n5.jpg",
+			"videoName": "雪暴",
+			"videoDescribe": "张震廖凡深山搏命"
+		},
+		{
+			"videoUrl": "http://192.168.43.169:8848/demoserver/video/dianfeng.mp4",
+			"imgUrl": "http://192.168.43.169:8848/demoserver/img/n6.jpg",
+			"videoName": "巅峰营救",
+			"videoDescribe": "特战精英跨国营救"
+		},
+		{
+			"videoUrl": "",
+			"imgUrl": "http://192.168.43.169:8848/demoserver/img/n7.jpg",
+			"videoName": "反贪风暴4",
+			"videoDescribe": "古天乐闯牢打虎"
+		},
+		{
+			"videoUrl": "",
+			"imgUrl": "http://192.168.43.169:8848/demoserver/img/n8.jpg",
+			"videoName": "老师.好",
+			"videoDescribe": "三班的故事"
+		}
+	]
+}

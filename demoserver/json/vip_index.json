@@ -1,0 +1,92 @@
+{
+	"slider": [
+		"http://192.168.43.169:8848/demoserver/vip_img/vip_slider1.jpg",
+		"http://192.168.43.169:8848/demoserver/vip_img/vip_slider2.jpg",
+		"http://192.168.43.169:8848/demoserver/vip_img/vip_slider3.jpg",
+		"http://192.168.43.169:8848/demoserver/vip_img/vip_slider4.jpg"
+	],
+	"hotingMovies": [{
+			"videoUrl": "http://192.168.43.169:8848/demoserver/video/c1.mp4",
+			"imgUrl": "http://192.168.43.169:8848/demoserver/vip_img/vip_hot1.jpg",
+			"videoName": "住院医生",
+			"videoDescribe": "实习萌生......",
+			"videoType":"美剧",
+			"videoIntroduc":"《驻院医生》是一部很有影响力的新医疗剧，该剧聚焦于一位年轻医生实习期间发生的事情，揭示了美国各地医院里真实发生的事情。"
+		},
+		{
+			"videoUrl": "http://192.168.43.169:8848/demoserver/video/c2.mp4",
+			"imgUrl": "http://192.168.43.169:8848/demoserver/vip_img/vip_hot2.jpg",
+			"videoName": "有猫在",
+			"videoDescribe": "暖心萌宠...",
+			"videoType":"青青/剧情/网剧",
+			"videoIntroduc":"这是一个关于成长的故事，麦麦和猫在一起的大多数时间使得麦麦的生活逐渐脱离社会，在好朋友欣宝的帮助下，麦麦去了欣宝的公司工作，从此麦麦开始了不一样的人生。她和欣宝的关系从吵架变得形影不离，她认识了外冷内热的公司主管、睿智的咖啡店老板、玩世不恭的房东小海哥……这些人都有着各自的故事， 而这些故事又都与猫有关。"
+		},
+		{
+			"videoUrl": "http://192.168.43.169:8848/demoserver/video/c2.mp4",
+			"imgUrl": "http://192.168.43.169:8848/demoserver/vip_img/vip_hot3.jpg",
+			"videoName": "追球",
+			"videoDescribe": "青春开局一追到底",
+			"videoType":"自制/偶像/青春",
+			"videoIntroduc":"顶级名校腾远学院的风云人物，高材生齐景浩，发现了一个惊人的秘密——刚转校的富家女颜晓希居然是个冒牌货！对这种爱慕虚荣的女生，齐景浩不屑一顾，然而他却发现颜晓希身怀自己寻觅已久的旋风球绝技。身为兵乓球社社长，正打算进军全国学院杯的齐景浩，以颜晓希的秘密要挟她教自己旋风球，本以为这是个一本万利的好买卖，没想到却是一失足成千古恨，原该受他辖制的冒牌富家女颜晓希，竟是个能把人耍得团团转的小魔怪。简直是这个可忍那个不可忍啊！看来，在拿到学院杯冠军之前，还是先把这可恶的小魔怪拿下吧……"
+		},
+		{
+			"videoUrl": "http://192.168.43.169:8848/demoserver/video/c2.mp4",
+			"imgUrl": "http://192.168.43.169:8848/demoserver/vip_img/vip_hot4.jpg",
+			"videoName": "动物管理局",
+			"videoDescribe": "管理所有小动物",
+			"videoType":"自制/喜剧",
+			"videoIntroduc":"郝运开了一家私人动物诊所，却因为一场猫咪配种事故，意外发现这个世界上有转化者存在。动物管理局带走郝运，但用各种方法都无法洗掉他的记忆，只好迫使他加入动物管理局，成为探员。从此，郝运的生活发生了天翻地覆的变化，原来，他的身边到处都是转化者。孤独、愤怒、嫉妒、固执、缺心眼……一桩桩动物案件，让郝运意识到，转化者世界也不外乎柴米油盐、悲欢离合，精于人情世故的郝运和战斗力超强的吴爱爱组成搭档，从水火不容变成干柴烈火，就在火苗一触即发之际，一桩牵扯郝运身世的转化者大案浮出水面……"
+		},{
+			"videoUrl": "http://192.168.43.169:8848/demoserver/video/c2.mp4",
+			"imgUrl": "http://192.168.43.169:8848/demoserver/vip_img/vip_hot5.jpg",
+			"videoName": "破冰行动",
+			"videoDescribe": "黄景瑜吴刚热血缉毒",
+			"videoType":"警匪/自制/嫌疑",
+			"videoIntroduc":"境外某跨国贩毒集团勾结东山当地不法分子进行大规模的地下冰毒生产，以达到将大量冰毒销往中国内陆省份及海外以获取高额利润的目的。在此复杂危险的环境下，以李飞为代表的缉毒警不畏牺牲拼死撕开当地毒贩和保护伞织起的那张巨大的地下毒网，并冲破重重迷局，为“雷霆扫毒专项行动”的顺利展开扫清障碍。"
+		},
+		{
+			"videoUrl": "http://192.168.43.169:8848/demoserver/video/c2.mp4",
+			"imgUrl": "http://192.168.43.169:8848/demoserver/vip_img/vip_hot6.jpg",
+			"videoName": "临界天下",
+			"videoDescribe": "王爵使徒然魂开战",
+			"videoType":"自制/偶像/奇幻",
+			"videoIntroduc":"玄沧，一个被灵力守护的邦域。一心只想开客栈的小酒保麒零却误打误撞进入灵力世界，被玄沧灵力最高的七个灵术师之一——七度王爵银尘收为使徒。麒零最初想摆脱银尘，不料却在灵术世界越陷越深，甚至发现玄沧平静的外表下暗藏着许多秘密和危机。种种迹象皆表明为乱世界的原始天妖即将复生，而这个危机似乎与玄沧王室有关。同时麒零还发现自己的平民朋友泱泽身世竟然非同一般。随着探秘的不断深入，麒零和使徒小伙伴神音、莲泉、幽花渐渐被卷入原始天妖巨大的阴谋中。而此时的麒零已在银尘的教导下成长为一名优秀的灵术师，最终他带领其他王爵、使徒揭穿玄沧神权的假象，战胜了原始天妖，保护了玄沧邦域。"
+		}
+
+	],
+	"dmMovies": [{
+			"videoUrl": "http://192.168.43.169:8848/demoserver/video/hkjh.mp4",
+			"imgUrl": "http://192.168.43.169:8848/demoserver/vip_img/vip_jingxuan1.jpg",
+			"videoName": "虎啸惊魂",
+			"videoDescribe": "凶猛老虎入侵城市",
+			"videoType":"剧情/动作",
+			"videoIntroduc":"有时候，枕边人比野兽更危险。 1925年，中俄边境小镇。东北虎在雪地中饥饿寻食。铁路工程师钱诚，从虎口中救下美女瑶华。巧的是，他俩原是大学同学。瑶华的新婚丈夫陷入恐惧，并且越来歇斯底里。对决、枪口子弹，东北虎、鲜血、汽车、构成一场漩涡，将所有人卷入其中。瑶华万万没想到的是，她温和的丈夫，彻底变了。"
+		},
+		{
+			"videoUrl": "http://192.168.43.169:8848/demoserver/video/ftfb.mp4",
+			"imgUrl": "http://192.168.43.169:8848/demoserver/vip_img/vip_jingxuan2.jpg",
+			"videoName": "反贪风暴",
+			"videoDescribe": "都市新兴廉政风云",
+			"videoType":"动作/犯罪",
+			"videoIntroduc":" 简介：廉政公署收到报案人廖雨萍（周秀娜饰）的实名举报，举报正在坐牢的富二代曹元 元（林峯饰）涉嫌行贿监狱里的监督沈济全（谭耀文饰）以及惩教员，首席调查主任陆志廉（古天乐饰）决定深入虎穴，卧底狱中。在监狱里，被陆志廉送入监狱的前警司黄文彬（林家栋饰）以及曹元元两大帮派势成水火，陆志廉趁机接近曹元元取得信任。同时监狱外的廉政公署总调查主任程德明（郑嘉颖饰）、国内反贪局行动处处长洪亮（丁海峰饰）也陆港联手，通力合作，最终成功破获贪腐行贿大案。"
+		},
+		{	"videoUrl": "http://192.168.43.169:8848/demoserver/video/c1.mp4",
+			"imgUrl": "http://192.168.43.169:8848/demoserver/vip_img/vip_jingxuan3.jpg",
+			"videoName": "一条狗的使命",
+			"videoDescribe": "爵迹小说改编电影",
+			"videoType":"剧情/动作",
+			"videoIntroduc":"简介：<br/>《一条狗的使命2》改编自前作者W·布鲁斯·卡梅伦的作品，由《一条狗的使命》原班人马打造。前作主演丹尼斯·奎德和为小狗配音的乔什·盖德携手回归，在新的世界开启另一段奇遇"
+		}	
+	],
+	"beAboutOnline":[
+		"http://192.168.43.169:8848/demoserver/vip_img/aa1.jpgg",
+		"http://192.168.43.169:8848/demoserver/vip_img/aa2.jpg",
+		"http://192.168.43.169:8848/demoserver/vip_img/aa3.jpg",
+		"http://192.168.43.169:8848/demoserver/vip_img/aa4.jpg",
+		"http://192.168.43.169:8848/demoserver/vip_img/aa5.jpg",
+		"http://192.168.43.169:8848/demoserver/vip_img/aa6.jpg",
+		"http://192.168.43.169:8848/demoserver/vip_img/aa7.jpg",
+		"http://192.168.43.169:8848/demoserver/vip_img/aa8.jpg"
+	]
+	
+}

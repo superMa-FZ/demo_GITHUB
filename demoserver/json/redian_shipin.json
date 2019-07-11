@@ -1,0 +1,45 @@
+{
+	"shipin": [{
+			"videoUrl": "https://192.168.43.99.1443/video/xx1.mp4",
+			"videoJianjie": "外国小哥做了这样一件事儿，大家都惊呆了....",
+			"weiZhi": "0",
+			"yongHu": "搞笑剪辑",
+		    "beijin":"https://192.168.43.99.1443/img/m2.jpg"
+		},
+		{
+			"videoUrl": "https://192.168.43.99.1443/video/xx2.mp4",
+			"videoJianjie": "外国小哥做了这样一件事儿，大家都惊呆了....",
+			"weiZhi": "1",
+			"yongHu": "科技猎奇",
+				"beijin":"https://192.168.43.99.1443/img/m3.jpg"
+		},
+		{
+			"videoUrl": "https://192.168.43.99.1443/video/xx3.mp4",
+			"videoJianjie": "外国小哥做了这样一件事儿，大家都惊呆了....",
+			"weiZhi": "2",
+			"yongHu": "搞笑剪辑",
+			"beijin": "https://192.168.43.99.1443/img/g1.jpg"
+		},
+		{
+			"videoUrl": "https://192.168.43.99.1443/video/xx1.mp4",
+			"videoJianjie": "外国小哥做了这样一件事儿，大家都惊呆了....",
+			"weiZhi": "3",
+			"yongHu": "情感生活",
+			"beijin": "https://192.168.43.99.1443/img/g2.jpg"
+		},
+		{
+			"videoUrl": "https://192.168.43.99.1443/video/xx2.mp4",
+			"videoJianjie": "外国小哥做了这样一件事儿，大家都惊呆了....",
+			"weiZhi": "4",
+			"yongHu": "搞笑剪辑",
+			"beijin": "https://192.168.43.99.1443/img/g3.jpg"
+		},
+		{
+			"videoUrl": "https://192.168.43.99.1443/video/xx3.mp4",
+			"videoJianjie": "外国小哥做了这样一件事儿，大家都惊呆了....",
+			"weiZhi": "5",
+			"yongHu": "实时军事",
+			"beijin": "https://192.168.43.99.1443/img/m1.jpg"
+		}
+	]
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/wodexiazai.css" rel="stylesheet" />
+		<script src="js/mui.js"></script>
+		<script src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-xiazai" id="mui-xiazai">
+			<ul class="mui-table-view mui-content">
+				<a href="">
+					<li class="mui-table-view-cell mui-row" v-for="movie in xiazai">
+						<div class="mui-col-sm-4 mui-col-xs-4">
+							<img :src="movie.videoImg">
+						</div>
+						<div class="mui-col-sm-8 mui-col-xs-8">
+							<p class="mui-col-sm-12 mui-col-xs-12">{{movie.videoTitle}}</p>
+							<span class="mui-col-sm-12 mui-col-xs-12">{{movie.downloadedProgress}}</span>
+						</div>
+					</li>
+				</a>
+			</ul>
+		</div>	
+	</body>
+	<script>
+		//创建负责数据绑定的vue对象
+		var vue = new Vue({
+			el: "#mui-xiazai",
+			data: {
+				xiazai: []
+			}
+		})
+		//AJAX加载服务器中的数据(静态资源)
+		/* mui.get('http://192.168.43.99:8848/demoserver/json/mymovies.json', function(data) {
+			//alert(data);
+			//返回的JSON格式的数据绑定给vue对象
+			vue.xiazai = data.xiazai;
+		}, 'json'); */
+		mui.post('https://192.168.43.99:1443/downloadedSelect.html', {
+			accountNumber: localStorage.getItem("userAccountNumber"),
+		}, function(data) {
+			if (data.information) {
+		      vue.xiazai =data.information;
+			} else {
+				mui.toast("登录失败，用户名或密码错误！");
+			}
+		}, 'json'); 
+	</script>
+
+</html>

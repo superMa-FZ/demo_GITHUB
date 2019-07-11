@@ -1,0 +1,137 @@
+body{
+	font-size:14px ;
+}
+.mui-bar{
+	background-color:#333333;
+	height: 55px;
+}
+
+#lishi1{
+	float: right;
+	margin-top:15px;
+	font-size: 20px;
+	color:#8F8F94;
+}
+
+#openPopover{
+	float: right;
+	margin-top:15px;
+	font-size: 40px;
+    color:#8F8F94;
+}
+.mui-popover .mui-table-view .mui-table-view-cell{
+	width: 100px;
+	}
+
+
+
+.nav-top{
+	position: relative;
+	width: 100%;
+	margin-top:60px ;
+	text-align: center;
+}
+.nav-top a{
+	font-size: 14px;
+	color: #222222;
+	margin: 0px 5px;
+}
+.nav-top a:hover{
+	color: #CF2D28;
+	/*text-decoration:underline ;*/
+	padding-bottom:3px ;
+	border-bottom: solid 2px #EC971F;
+}
+.mui-slider{
+	width:100%;
+	min-width:300px;
+	margin:15px auto;
+	
+}
+.mui-slider div div a img{
+	width:100%;
+	height:260px;
+	
+	
+}
+.mui-movie{
+	position:relative;
+	width:100%;
+	margin-top:20px ;
+}
+.mui-movie{
+	font-size: 14px;
+	text-indent: 14px;
+}
+.mui-movie .mui-movie-row{
+	position:relative;
+	width: 96%;
+	min-width: 300px;
+	margin: 10px auto;
+	display: flex;
+	flex-wrap:wrap ;
+	justify-content: space-between;
+}
+.mui-movie .mui-movie-row .mui-movie-row-item{
+	list-style-type: none;
+	width: 48%;
+	
+}
+.mui-movie .mui-movie-row .mui-movie-row-item img{
+	width: 100%;
+	height: 270px;
+	border-radius: 5px;
+	}
+.mui-movie .mui-movie-row .mui-movie-row-item p:nth-child(2){
+	font-weight: bold;
+	color:#000000;
+	margin-bottom: 0px;
+}
+.mui-movie .mui-movie-row .mui-movie-row-item p:nth-child(3){
+	font-size: 12px;
+	margin-top: 0px;
+}
+.mui-gundong.mui-scroll-wrapper.mui-scroll.mui-control-item img {
+	height: 1000px;
+	width: 1;
+}
+.mui-btn {
+		position: relative;
+	margin-left: 0px;
+	width: 100%;
+	border: none;
+	background-color: #F2F2F2;
+}
+.mui-btn button {
+	position: relative;
+	margin-left: 0px;
+	width: 50%;
+	background-color: #DDDDDD;
+		border: none;
+}
+.color-green { 
+color: #2AC845;
+}
+.mui-movie1 .mui-scroll-wrapper .mui-scroll img{
+	height: 300px;
+	width:100px ;
+	
+	
+}
+.scroll_div{
+	position: relative;
+	margin-top: 20px;
+	margin-left: 20px;
+	font-style: oblique;
+}
+.scroll_div a {
+	position: relative;
+	margin-left: 10px;	
+	font-size: 14px;
+	color: #323232;
+}
+.scroll_div i{
+	font-size: 20px;
+	color: #FF0000;
+}
+

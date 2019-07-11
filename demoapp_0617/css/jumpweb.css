@@ -1,0 +1,67 @@
+
+.mui-fenlei h2{
+	font-size: 20px;
+	position: relative;
+	left: 45%;
+	top: 3px;
+}
+	.mui-table-view .mui-table-view-cell .mui-media-object img{
+	width: 50%;
+	height:50%;
+	border-radius: 8px;
+	position: relative;
+	top: 100px;
+	left: 40%;
+}
+ .mui-media-body p{
+	font-size:15px ;
+	font-color: #007AFF;
+	position: relative;
+	left: 1%;
+}
+
+
+.mui-paihang h4{
+	font-size: 20px;
+	position: relative;
+	left: 40%;
+	top: 10px;
+}
+.mui-paihang .mui-paihang-row .mui-img{
+	width: 38%;
+	height:38%;
+	border-radius: 8px;
+	position: relative;
+	top: 70px;
+	left: 2%;
+}
+.mui-paihang .mui-paihang-row li{
+	list-style: none;
+	margin-top: -30px;
+	
+}
+.mui-paihang .mui-paihang-row p{
+	font-size: 20px;
+	color: #000000;
+	position: relative;
+	left: 40%;
+}
+.mui-paihang-row-item{
+	position: relative;
+	top: 10px;
+}
+.mui-paihang .mui-paihang-row .mui-paihang-row-item p:nth-child(2){
+	position: relative;
+	bottom: 15px;
+}
+.mui-paihang .mui-paihang-row .mui-paihang-row-item p:nth-child(3){
+	position: relative;
+	bottom: 10px;
+	font-size: 15px;
+	left:40% ;
+}
+.mui-paihang{
+	background-color: white;
+}
+
+

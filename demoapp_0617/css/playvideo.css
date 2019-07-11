@@ -1,0 +1,10 @@
+.mui-content .mui-video{
+	position: relative;
+	width: 100%;
+	background-color: #222222;
+	
+}
+.mui-content .mui-video video{
+	width: 100%;
+	height: 180px;
+}

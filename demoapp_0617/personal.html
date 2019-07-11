@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link type="text/css" href="css/iconfont.css" rel="stylesheet" />
+		<link href="css/personal.css" rel="stylesheet" />
+		<script src="js/mui.js"></script>
+		<script src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				gestureConfig: {
+					tap: true, //默认为true
+					doubletap: true, //默认为false
+					longtap: true, //默认为false
+					swipe: true, //默认为true
+					drag: true, //默认为true
+					hold: false, //默认为false，不监听
+					release: false //默认为false，不监听
+				}
+			});
+			mui.plusReady(function() {
+
+				mui('.mui-row').on('tap', '.mui-denglu', function() {
+					if (localStorage.getItem("userAccountNumber") && vue.denglu === "注销") {
+						vue.userAccountNumber = "未登录";
+						vue.denglu = "登录";
+						localStorage.removeItem("userAccountNumber")
+					} else {
+						mui.openWindow({
+							url: 'login.html',
+							id: 'login.html'
+						});
+					}
+				});
+
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="content" class="mui-content">
+			<div class="mui-row mui-row-a">
+				<div class="mui-col-sm-3 mui-col-xs-3">
+					<div id="tx">
+						<img src="img/tx.jpg" />
+					</div>
+				</div>
+				<div class="mui-col-sm-5 mui-col-xs-5">
+					<div class="yhm" v-cloak>{{userAccountNumber}}</div>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 mui-denglu">
+					<button type="button" class="mui-btn mui-btn-outlined">{{denglu}}</button>
+				</div>
+			</div>
+
+			<div class="mui-row mui-row-b">
+				<div class="mui-col-sm-12 mui-col-xs-12">
+					<h4>会员服务</h4>
+				</div>
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll">
+						<div class="mui-control-item">
+							<button id="xufei">
+								<i class="mui-icon iconfont icon-xiaochengxu1"></i>
+								<span>续费VIP会员</span>
+							</button>
+						</div>
+						<div class="mui-control-item">
+							<button>
+								<i class="mui-icon iconfont icon-xiaochengxu1"></i>
+								<span>开通FUN会员</span>
+							</button>
+						</div>
+						<div class="mui-control-item">
+							<button>
+								<i class="mui-icon iconfont icon-xiaochengxu1"></i>
+								<span>开通体育会员</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="mui-row mui-row-c">
+				<div class="mui-col-sm-4 mui-col-xs-4 c1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-wodeshoucangai"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">我的收藏</span>
+					</a>
+				</div>
+				<div id="guankanlishi" class="mui-col-sm-4 mui-col-xs-4 c1">
+					<a class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-guankanlishi"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">观看历史</span>
+					</a>
+				</div>
+				<div id="xiazai" class="mui-col-sm-4 mui-col-xs-4 c1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-wodexiazai"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">我的下载</span>
+					</a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 c1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-wodeqianbao"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">我的钱包</span>
+					</a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 c1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-aiguifanfile2"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">我的订单</span>
+					</a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 c1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-wodeyouxi"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">我的游戏</span>
+					</a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 c1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-xiaochengxu1"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">小程序</span>
+					</a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 c1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-iconwodeshipin"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">我的视频</span>
+					</a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 c1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-zhutipifu"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">主题皮肤</span>
+					</a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 c1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-aiqiyihao"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">爱奇艺号</span>
+					</a>
+				</div>
+				<div id="setup" class="mui-col-sm-4 mui-col-xs-4 c1">
+					<a class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-shezhi"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">设置</span>
+					</a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 c1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-bangzhufankui"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">帮助反馈</span>
+					</a>
+				</div>
+			</div>
+
+			<div class="mui-row mui-row-d">
+				<div class="mui-col-sm-4 mui-col-xs-4 d1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-fulilibaoicon"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">福利礼包</span>
+					</a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 d1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-liuliangchaoshi"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">流量超市</span>
+					</a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 d1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-huodongzhuanqu"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">活动专区</span>
+					</a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 d1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-zhinengyingjian"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">智能硬件</span>
+					</a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 d1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-gongyi"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">公益</span>
+					</a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 d1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-jieqian"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">借钱</span>
+					</a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 d1">
+					<a href="" class="mui-row">
+						<i class="mui-col-sm-12 mui-col-xs-12 mui-icon iconfont icon-kuandai"></i>
+						<span class="mui-col-sm-12 mui-col-xs-12">VIP宽带</span>
+					</a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 d1">
+					<a href="" class="mui-row"></a>
+				</div>
+				<div class="mui-col-sm-4 mui-col-xs-4 d1">
+					<a href="" class="mui-row"></a>
+				</div>
+			</div>
+
+			<div class="mui-row-e">关于我们</div>
+
+		</div>
+	</body>
+	<script>
+		var vue = new Vue({
+			el: "#content",
+			data: {
+				userAccountNumber: "未登录",
+				denglu: "登录"
+			}
+		})
+		if (localStorage.getItem("userAccountNumber")) {
+			vue.userAccountNumber = localStorage.getItem("userAccountNumber");
+			vue.denglu = "注销";
+		}
+	</script>
+	<script>
+		var xufei = document.getElementById("xufei");
+		document.getElementById("xufei").addEventListener('tap', function() {
+			mui.openWindow({
+				url: 'xufeihuiyuan.html',
+				id: 'xufeihuiyuan.html'
+			});
+		});
+		var setup = document.getElementById("setup");
+		document.getElementById("setup").addEventListener('tap', function() {
+			mui.openWindow({
+				url: 'setup.html',
+				id: 'setup.html'
+			});
+		});
+		var guankanlishi = document.getElementById("guankanlishi");
+		document.getElementById("guankanlishi").addEventListener('tap', function() {
+			mui.openWindow({
+				url: 'guankanlishi.html',
+				id: 'guankanlishi.html'
+			});
+		});
+		var tx = document.getElementById("tx");
+		document.getElementById("tx").addEventListener('tap', function() {
+			mui.openWindow({
+				url: 'gerenzhongxin.html',
+				id: 'gerenzhongxin.html'
+			});
+		});
+		var xiazai = document.getElementById("xiazai");
+		document.getElementById("xiazai").addEventListener('tap', function() {
+			mui.openWindow({
+				url: 'xiazai.html',
+				id: 'xiazai.html'
+			});
+		});
+	</script>
+
+</html>

@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/gerenzhongxin.css" rel="stylesheet" />
+		<script src="js/mui.js"></script>
+		<script src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			mui.plusReady(function() {
+				var Username = localStorage.getItem("userName");
+				var Password = localStorage.getItem("password");
+				mui.toast(Username+Password);
+				mui.post('https://192.168.43.99:1443/UserControllerLogin.html', {
+					Username: Username,
+					Password: Password
+
+				}, function(data) {
+					if (data.information) {
+						vue.username = data.information.userName;
+						vue.password = data.information.passWord;
+						vue.dateOfBirth = data.information.dateOfBirth;
+						vue.accountNumber = data.information.accountNumber;
+					} else {
+						mui.toast("登录失败，用户名或密码错误！");
+					}
+					/* alert(data.success); */
+				}, 'json');
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<span class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></span>
+			<h2 class="mui-title">设置</h2>
+		</header>
+		<div id="content" class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">头像
+						<div id="tx">
+							<img src="img/tx.jpg" />
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">账号：<span class="mui-right" style="padding-left: 20px;">{{accountNumber}}</span></a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">昵称：<span class="mui-right" style="padding-left: 20px;">{{username}}</span></a>
+				</li>
+
+				<li class="mui-table-view-cell">
+					<a>出生日期：<span class="mui-right" style="padding-left: 20px;">{{dateOfBirth}}</span><input type="date" id="chushengriqi" /><span>{{dateOfBirth}}</span></a>
+				</li>
+			</ul>
+
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-tuichu">
+					<a class="mui-text-center">保存</a><span></span>
+				</li>
+			</ul>
+		</div>
+
+	</body>
+
+	<script>
+		var vue = new Vue({
+			el: "#content",
+			data: {
+				username: '',
+				password: '',
+				dateOfBirth: '',
+				accountNumber: ''
+			}
+		})
+	</script>
+
+
+	<script>
+		document.getElementById('tx').addEventListener('tap', function() {
+			if (mui.os.plus) {
+				var a = [{
+					title: "拍照"
+				}, {
+					title: "从手机相册选择"
+				}];
+				plus.nativeUI.actionSheet({
+					title: "修改用户头像",
+					cancel: "取消",
+					buttons: a
+				}, function(b) { /*actionSheet 按钮点击事件*/
+					switch (b.index) {
+						case 0:
+							break;
+						case 1:
+							getImage(); /*拍照*/
+							break;
+						case 2:
+							galleryImg(); /*打开相册*/
+							break;
+						default:
+							break;
+					}
+				})
+			}
+		}, false);
+		//拍照  
+		function getImage() {
+			var c = plus.camera.getCamera();
+			c.captureImage(function(e) {
+				plus.io.resolveLocalFileSystemURL(e, function(entry) {
+					var s = entry.toLocalURL() + "?version=" + new Date().getTime();
+					uploadHead(s); /*上传图片*/
+				}, function(e) {
+					console.log("读取拍照文件错误：" + e.message);
+				});
+			}, function(s) {
+				console.log("error" + s);
+			}, {
+				filename: "_doc/head.png"
+			})
+		}
+
+		//本地相册选择  
+		function galleryImg() {
+			plus.gallery.pick(function(a) {
+				plus.io.resolveLocalFileSystemURL(a, function(entry) {
+					plus.io.resolveLocalFileSystemURL("_doc/", function(root) {
+						root.getFile("head.png", {}, function(file) {
+							//文件已存在  
+							file.remove(function() {
+								console.log("file remove success");
+								entry.copyTo(root, 'head.png', function(e) {
+										var e = e.fullPath + "?version=" + new Date().getTime();
+										uploadHead(e); /*上传图片*/
+										//变更大图预览的src  
+										//目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现  
+									},
+									function(e) {
+										console.log('copy image fail:' + e.message);
+									});
+							}, function() {
+								console.log("delete image fail:" + e.message);
+							});
+						}, function() {
+							//文件不存在  
+							entry.copyTo(root, 'head.png', function(e) {
+									var path = e.fullPath + "?version=" + new Date().getTime();
+									uploadHead(path); /*上传图片*/
+								},
+								function(e) {
+									console.log('copy image fail:' + e.message);
+								});
+						});
+					}, function(e) {
+						console.log("get _www folder fail");
+					})
+				}, function(e) {
+					console.log("读取拍照文件错误：" + e.message);
+				});
+			}, function(a) {}, {
+				filter: "image"
+			})
+		};
+
+		//上传头像图片  
+		function uploadHead(imgPath) {
+			var mainImage = document.getElementById("headimg");
+			mainImage.src = imgPath;
+
+			var image = new Image();
+			image.src = imgPath;
+			image.onload = function() {
+				var imgData = getBase64Image(image);
+				/*在这里调用上传接口*/
+				//              mui.ajax("图片上传接口", {  
+				//                  data: {  
+				//                        
+				//                  },  
+				//                  dataType: 'json',  
+				//                  type: 'post',  
+				//                  timeout: 10000,  
+				//                  success: function(data) {  
+				//                      console.log('上传成功');  
+				//                  },  
+				//                  error: function(xhr, type, errorThrown) {  
+				//                      mui.toast('网络异常，请稍后再试！');  
+				//                  }  
+				//              });  
+			}
+		}
+		//将图片压缩转成base64  
+		function getBase64Image(img) {
+			var canvas = document.createElement("canvas");
+			var width = img.width;
+			var height = img.height;
+			// calculate the width and height, constraining the proportions  
+			if (width > height) {
+				if (width > 100) {
+					height = Math.round(height *= 100 / width);
+					width = 100;
+				}
+			} else {
+				if (height > 100) {
+					width = Math.round(width *= 100 / height);
+					height = 100;
+				}
+			}
+			canvas.width = width; /*设置新的图片的宽度*/
+			canvas.height = height; /*设置新的图片的长度*/
+			var ctx = canvas.getContext("2d");
+			ctx.drawImage(img, 0, 0, width, height); /*绘图*/
+			var dataURL = canvas.toDataURL("image/png", 0.8);
+			return dataURL.replace("data:image/png;base64,", "");
+		}
+	</script>
+</html>

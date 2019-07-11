@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/iconfont2.css" rel="stylesheet" />
+		<link href="css/redian.css" rel="stylesheet" />
+		<script src="js/iconfont.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			var styles = {
+				top: '80px',
+				bottom: '0px'
+			}
+			var subPages = [{
+				url: 'redian_sub.html',
+				id: 'redian_sub.html',
+				styles: styles
+			}];
+			//初始化
+
+			mui.init({
+				//子网页对象
+				subpages: subPages,
+				gestureConfig: {
+					tap: true, //默认为true
+					doubletap: true, //默认为false
+					longtap: true, //默认为false
+					swipe: true, //默认为true
+					drag: true, //默认为true
+					hold: false, //默认为false，不监听
+					release: false //默认为false，不监听
+				}
+			});
+
+
+
+
+			mui.plusReady(function() {
+				mui('.mui-scroll-wrapper .mui-slider-indicator .mui-scroll').on('tap', 'a', function() {
+					var href = this.getAttribute("href");
+					if (href) {
+						var self = plus.webview.currentWebview();
+						var subExist = plus.webview.getWebviewById(href);
+						if (subExist) {
+							//关闭已经存在的网页
+							plus.webview.close(subExist);
+						}
+						var sub = plus.webview.create(href, href, styles);
+						self.append(sub);
+					}
+				});
+				window.addEventListener("changeCity", function(e) {
+					//alert(e.detail.cityName);
+					var allA = document.querySelectorAll('a');
+					for (var i = 0; i < allA.length; i++) {
+						allA[i].classList.remove("mui-active");
+					}
+					allA[e.detail.right].classList.add("mui-active");
+					var href = e.detail.cityName;
+					if (href) {
+						var self = plus.webview.currentWebview();
+						var subExist = plus.webview.getWebviewById(href);
+						if (subExist) {
+							//关闭已经存在的网页
+							plus.webview.close(subExist);
+						}
+						var sub = plus.webview.create(href, href, styles);
+						self.append(sub);
+					}
+				});
+			});
+		</script>
+
+	</head>
+	<script>
+		function enterSearch(event){
+				var keyword = document.getElementById('searchInput').value;
+				if(event.keyCode == 13){
+					if(keyword != ""){
+						alert(keyword);
+					}else{
+						alert("请输入要搜索的内容");
+					}
+				}
+			}
+	</script>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+
+			<!-- <svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-sousuo"></use>
+				</svg> -->
+			<div class="mui-input-row mui-search search-size" id="searchForm">
+				<input type="search" id="searchInput" onkeyup="enterSearch(event)" placeholder="搜索" class="mui-input-clear" />
+			</div>
+			<div class="mui-scroll-wrapper" style="margin-left: 150px;">
+				<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll mui-shx">
+						<a href="redian_guanzhu.html" class="mui-control-item "><span class="mui-redian-head">关注</span></a>
+						<a href="redian_sub.html" class="mui-active mui-control-item"><span class="mui-redian-head">推荐</span></a>
+						<a href="redian_shipin.html" class="mui-control-item "><span class="mui-redian-head">视频</span></a>
+					</div>
+				</div>
+			</div>
+			<!-- <a href="#popover" id="openPopover" class="icon iconfont icon-jiahao mui-pull-right"></a>
+			<div id="popover" class="mui-popover" style="z-index: 999999; position: relative;">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell"><a href="#">拍小视频</a>
+					<li class="mui-table-view-cell"><a href="#">上传视频</a>
+					<li class="mui-table-view-cell"><a href="#">扫一扫</a>
+					<li class="mui-table-view-cell"><a href="#">我要直播</a>
+				</ul>
+			</div> -->
+		</header>
+
+
+	</body>
+
+	<!-- <script>
+		var xufei = document.getElementById("guanzhu");
+		document.getElementById("guanzhu").addEventListener('tap', function() {
+			mui.openWindow({
+				url: 'redian_guanzhu.html',
+				id: 'redian_guanzhu.html'
+			});
+		});
+	</script> -->
+</html>

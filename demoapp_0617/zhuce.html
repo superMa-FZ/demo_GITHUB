@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/zhuce.css" rel="stylesheet" />
+		<script src="js/mui.js"></script>
+		<script src="js/iconfont.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/jsencrypt.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				mui('#loginer').on('tap', 'button.mui-btn-default', function() {
+					//获得输入框中的用户名或密码
+					var userName = mui('#userName')[0].value;
+					var password = mui('#password')[0].value;
+					var accountNumber = mui('#accountNumber')[0].value;
+					var dataOfBirth = mui('#password')[0].value;
+					//创建负责加密的对象
+					// var jsEncrypt = new JSEncrypt();
+					//设置公钥
+					// jsEncrypt.setPrivateKey(publicKey); 
+					//加密数据
+					// userName = jsEncrypt.encrypt(userName);
+					// password = jsEncrypt.encrypt(password); 
+					//提交数据到服务器进行登录验证
+					mui.post('https://192.168.43.99:1443/UserControllerRegister.html', {
+						Username: userName,
+						Password: password,
+						accountNumber: accountNumber,
+						dateOfbirth: dataOfBirth
+					}, function(data) {
+						if (data.success) {
+							mui.toast('注册成功，即将返回登录！');
+						    mui.back();
+						} else {
+							mui.toast('该账号已经被注册，请重新注册！');
+						}
+						/* alert(data.success); */
+					}, 'json');
+				});
+				mui('#loginer').on('tap', 'button.mui-btn-outlined', function() {
+					mui.back();
+				});
+			});
+		</script>
+	</head>
+
+	<body style="background-color: white;">
+		<header class="mui-bar mui-bar-nav" style="height: 6%;">
+			<div style="margin-top: 2%;">
+				<span class="mui-icon mui-icon-arrowleft"></span>
+				<div class="mui-title" align="center">注册</div>
+			</div>
+		</header>
+		<div id="loginer">
+			<div style="height: 60px; text-align: center;">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-changyonglogo32"></use>
+				</svg>
+			</div>
+			<form class="mui-group">
+				<div class="mui-input-row">
+					<label>用户名</label>
+					<input type="text" id="accountNumber" class="mui-input-clear" placeholder="请输入账号">
+				</div>
+				<div class="mui-input-row">
+					<label>密码</label>
+					<input type="password" id="password" class="mui-input-password" placeholder="请输入密码">
+				</div>
+				<div class="mui-input-row">
+					<label>出生日期</label>
+					<input type="text" id="dataOfBirth" placeholder="请输入出生日期" />
+				</div>
+				<div class="mui-input-row">
+					<label>姓名</label>
+					<input type="text" id="userName" placeholder="请输入姓名" />
+				</div>
+				<div class="mui-button-row">
+					<button type="button" class="mui-btn mui-btn-default">确认</button>
+					<button type="button" class="mui-btn mui-btn-outlined" style="margin-left: 25px;">取消</button>
+				</div>
+				<div style="height: 20px;"></div>
+			</form>
+		</div>
+
+		<div class="other-way-login">
+			<span class="line"></span>
+			<span class="txt">其他方式登陆</span>
+			<span class="line"></span>
+			<div class="mui-icon-foot" style="width: 100%;">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-wechat"></use>
+				</svg>
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-zhifubao"></use>
+				</svg>
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-weibo"></use>
+				</svg>
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-qq"></use>
+				</svg>
+			</div>
+		</div>
+		<div class="mui-bar-as" align="center">
+			<p>登录及代表您同意用户协议和隐私政策</p>
+		</div>
+	</body>
+
+	<script>
+		//声明公钥全局变量
+		/* var publicKey;
+		//获取公钥
+		mui.get('http://192.168.43.169/getpublickey.html',function(data){
+			publicKey = data;
+			// alert(publicKey);
+		}); */
+	</script>
+</html>

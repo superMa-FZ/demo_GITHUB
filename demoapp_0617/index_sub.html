@@ -1,0 +1,316 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/index_sub.css" rel="stylesheet" />
+		<link href="css/index.css" rel="stylesheet" />
+		<link href="css/iconfont1.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<link href="css/iconfont4.css" rel="stylesheet" />
+		<script src="js/iconfont.js"></script>
+		<script src="js/mui.js"></script>
+		<script src="js/vue.min.js"></script>
+		<style>
+			.icon {
+		  width: 1em;
+		  height: 1em;
+		  vertical-align: -0.15em;
+		  fill: currentColor;
+		  overflow: hidden;
+		}
+		</style>
+
+		<script type="text/javascript" charset="utf-8">
+			mui.init({
+				gestureConfig: {
+					tap: true, //默认为true
+					doubletap: true, //默认为false
+					longtap: true, //默认为false
+					swipe: true, //默认为true
+					drag: true, //默认为true
+					hold: false, //默认为false，不监听
+					release: false //默认为false，不监听
+				}
+			});
+
+			mui.plusReady(function() {
+
+				//通过父级元素来给子级元素绑定事件	
+				mui('.mui-movie-row').on('tap', '.mui-movie-row-item', function() {
+					//获得视频路径
+					var url = this.getAttribute("url");
+					var videoName = this.getAttribute("videoName")
+					//判断是否获取url
+					if (url) {
+						//打开一个新窗口
+						mui.openWindow({
+							url: 'index_playvideo.html',
+							extras: {
+								url: url,
+								videoName: videoName
+							}
+						});
+					}
+				});
+
+				mui('.mui-slider-group').on('tap', '.mui-slider-item', function() {
+					//获得视频路径
+					var url = this.getAttribute("url");
+					var videoName = this.getAttribute("videoName")
+					//判断是否获取url
+					if (url) {
+						//打开一个新窗口
+						mui.openWindow({
+							url: 'index_playvideo.html',
+							extras: {
+								url: url,
+								videoName: videoName
+							}
+						});
+					}
+				});
+				
+				
+				
+				
+				mui('.mui-bar-nav').on('tap', '.icon-lishi1', function() {
+					//获得视频路径
+					//判断是否获取url
+					if (localStorage.getItem("userAccountNumber")) {
+						//打开一个新窗口
+						mui.openWindow({
+							url: 'guankanlishi.html',
+						});
+					}
+					else{
+						alert("请先登录");
+					}
+				});
+				
+				
+				
+				
+				
+				
+			//获得slider插件对象
+			var gallery = mui('.mui-slider'); gallery.slider({
+				interval: 3000 //自动轮播周期，若为0则不自动播放，默认为0；
+			});
+
+			var gallery = mui('.scroll_div'); gallery.slider({
+				interval: 3000 //自动轮播周期，若为0则不自动播放，默认为0；
+			});
+			});
+		</script>
+	</head>
+	<script>
+		function enterSearch(event){
+			var keyword = document.getElementById('searchInput').value;
+			if(event.keyCode == 13){
+				if(keyword != ""){
+					alert(keyword);
+				}else{
+					alert("请输入要搜索的内容");
+				}
+			}
+		}
+   </script>
+	<body ng-app="ionicApp" animation="slide-left-right-ios7" ng-controller="SlideController">
+		<header class="mui-bar mui-bar-nav">
+			<svg class="icon" aria-hidden="true" style="height: 50px; width: 60px;">
+				<use xlink:href="#icon-changyonglogo32"></use>
+			</svg>
+			<div class="mui-input-row mui-search search-size" id="searchForm">
+				<input type="search" id="searchInput" style="background-color: #B6B6B6;" onkeyup="enterSearch(event)" placeholder="搜索"
+				 class="mui-input-clear" />
+			</div>
+			<a href="#popover" id="openPopover" class="icon iconfont icon-jiahao"></a>
+			<div id="popover" class="mui-popover" style="width: 80px;">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell"><a href="#">拍小视频</a>
+					<li class="mui-table-view-cell"><a href="#">上传视频</a>
+					<li class="mui-table-view-cell"><a href="#">扫一扫</a>
+					<li class="mui-table-view-cell"><a href="#">我要直播</a>
+				</ul>
+			</div>
+			<span id="lishi1" class="icon iconfont icon-lishi1"></span>
+		</header>
+
+		<div id="mui-content" class="mui-content">
+			<div class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<div class="mui-slider-item" v-for="s in slider" url="http://192.168.43.99:8080/video/dianfeng.mp4" :videoName="s.sliderVideourl"><a
+						 href="#"><img :src="s.sliderImg" /></a></div>
+					<!--支持循环，需要重复图片节点-->
+					<!-- <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img :src="slider[slider.length-1]" /></a></div>
+					<div class="mui-slider-item" v-for="sliderImg in slider"><a href="#"><img :src="sliderImg" /></a></div>
+					<!--支持循环，需要重复图片节点-->
+					<!-- 	<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img :src="slider[0]" /></a></div> -->
+					-->
+				</div>
+			</div>
+
+			<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+				<div class="mui-scroll">
+					<a class="mui-control-item mui-active">
+						体育
+					</a>
+					<a class="mui-control-item">
+						漫画
+					</a>
+					<a class="mui-control-item">
+						游戏直播
+					</a>
+					<a class="mui-control-item">
+						文学
+					</a>
+					<a class="mui-control-item">
+						奇秀
+					</a>
+					<a class="mui-control-item">
+						游戏中心
+					</a>
+					<a class="mui-control-item">
+						商城
+					</a>
+					<a class="mui-control-item">
+						知识
+					</a>
+					<a class="mui-control-item">
+						轻小说
+					</a>
+					<a class="mui-control-item">
+						私人影院
+					</a>
+				</div>
+			</div>
+
+			<!-- 滚动字 -->
+			<div class="scroll_div">
+				<i class="font">News:</i><a id="HotNews" target="_blank"></a>
+				<SCRIPT LANGUAGE="JavaScript">
+					<!--
+		var NewsTime = 3000;	//每条新闻的停留时间
+		var TextTime = 50;		//新闻标题文字出现等待时间，越小越快
+		
+		var newsi = 0;
+		var txti = 0;
+		var txttimer;
+		var newstimer;
+		
+		var newstitle = new Array();	//新闻标题
+		var newshref = new Array();		//新闻链接
+		
+		newstitle[0] = "明星说  张纪中称当代武侠剧没灵魂";
+		newshref[0] = "http://dev.dcloud.net.cn/mui/pulldown/";
+		
+		newstitle[1] = "头条  黄奕发长文回应女儿被夺走，直言那是人生最灰暗的时刻";
+		newshref[1] = "http://dev.dcloud.net.cn/mui/pulldown/";
+		
+		newstitle[2] = "推荐  四大流量现状，杨洋向硬汉转型，李易峰重拍古偶剧";
+		newshref[2] = "http://dev.dcloud.net.cn/mui/pulldown/";
+		
+		newstitle[3] = "《少年派》大结局：钱三一考上清华，江天昊当老板";
+		newshref[3] = "http://dev.dcloud.net.cn/mui/pulldown/";
+		
+		newstitle[4] = "不能看、不能吃？《千与千寻》隐藏着哪些神话禁忌";
+		newshref[4] = "http://dev.dcloud.net.cn/mui/pulldown/";
+		
+		function shownew()
+		{
+			//
+			var endstr = "_"
+			hwnewstr = newstitle[newsi];
+			newslink = newshref[newsi];
+			if(txti==(hwnewstr.length-1)){endstr="";}
+			if(txti>=hwnewstr.length){
+				clearInterval(txttimer);
+				clearInterval(newstimer);
+				newsi++;
+				if(newsi>=newstitle.length){
+					newsi = 0
+				}
+				newstimer = setInterval("shownew()",NewsTime);
+				txti = 0;
+				return;
+			}
+			clearInterval(txttimer);
+			document.getElementById("HotNews").href=newslink;
+			document.getElementById("HotNews").innerHTML = hwnewstr.substring(0,txti+1)+endstr;
+			txti++;
+			txttimer = setInterval("shownew()",TextTime);
+		}
+		shownew();
+		//-->
+		</SCRIPT>
+			</div>
+
+
+
+
+			<div id="mui-content" class="mui-movie">
+				<h4>正在热播</h4>
+				<div class="mui-movie-row">
+					<li class="mui-movie-row-item" v-bind:url="movie.videoUrl" :videoName="movie.videoName" v-for="movie in hotMovies">
+						<img :src="movie.videoImg" />
+						<p>{{movie.videoName}}</p>
+						<p>{{movie.videoDescribe}} </p>
+					</li>
+				</div>
+			</div>
+
+			<div class="mui-btn">
+				<a href="jumpweb.html"><button type="button"><span class="mui-icon mui-icon-videocam  color-green"></span>更多电视剧
+					</button></a>
+				<button type="button"><span class="mui-icon mui-icon-loop  color-green"></span>换一批
+				</button>
+			</div>
+
+			<div class="mui-movie">
+				<h4>最新上线</h4>
+				<div class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop">
+						<div class="mui-slider-item" v-for="s2 in slider2"><a href="#"><img :src="s2.sliderImg" /></a></div>
+						<!-- <!--支持循环，需要重复图片节点-->
+						<!-- <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="img/t1.jpg" /></a></div>
+						<div class="mui-slider-item"><a href="#"><img src="img/t2.jpg" /></a></div>
+						<div class="mui-slider-item"><a href="#"><img src="img/t3.jpg" /></a></div>
+						<div class="mui-slider-item"><a href="#"><img src="img/t4.jpg" /></a></div>
+						<div class="mui-slider-item"><a href="#"><img src="img/t5.jpg" /></a></div> -->
+						<!--支持循环，需要重复图片节点-->
+						<!-- <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="img/t1.jpg" /></a></div> -->
+						-->
+					</div>
+				</div>
+
+
+			</div>
+
+
+	</body>
+	<script>
+		//创建负责数据绑定的vue对象
+		var vue = new Vue({
+			el: "#mui-content",
+			data: {
+				hotMovies: [],
+				slider: [],
+				slider2: []
+			}
+		});
+		//AJAX加载服务器中数据(静态资源)
+
+		mui.get('https://192.168.43.99:1443/index_sub.html', function(data) {
+
+			vue.slider = data.indexSliders;
+			vue.hotMovies = data.commondVideos;
+			vue.slider2 = data.indexSliders2;
+		}, 'json');
+	</script>
+
+
+</html>

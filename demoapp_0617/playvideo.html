@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/playvideo.css" rel="stylesheet" />
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			//页面加载完毕后执行
+			mui.plusReady(function() {
+				//获得当前窗口对象
+				var self = plus.webview.currentWebview();
+				//接收参数，获得参数值
+				var url = self.url;
+				alert(url);
+				//获得视频对象
+			/* 	var video = mui('.mui-video video')[0];
+				//设置新的视频路径
+				video.src = url;
+				//播放视频
+				video.play(); */
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-video">
+				<video src="video/xuebao.mp4" width="100%" height="180" controls autoplay></video>
+			</div>
+		</div>
+		<!--  -->
+	<!-- 	<div class="mui-btn">
+			<button type="button"><span class="color-green"></span>视频
+			</button>
+			<button type="button">泡泡<span class="mui-icon mui-icon-chat color-green"></span>
+			</button>
+		</div> -->
+		<div class="mui-content">
+			<div class="mui-row">
+				<div class="mui-col-sm-6 mui-col-xs-12">
+					<div class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+
+							<img class="mui-media-object mui-pull-left" src="http://172.16.120.5:8848/demoserver/img/playvideo_fz.jpg">
+
+							<div class="mui-media-body">
+								大众犯罪心理学：
+								<p></p>
+								<p class='mui-ellipsis'>洞悉人性</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="mui-col-sm-6 mui-col-xs-12">
+					<div class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							<img class="mui-media-object mui-pull-left" src="http://172.16.120.5:8848/demoserver/img/playvideo_sb.jpg">
+							<div class="mui-media-body">
+								男士防水夜光手表
+								<p></p>
+								<p class='mui-ellipsis'>￥48</p>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- 雪暴 -->
+
+		<div class="mui-row">
+			<div class="mui-col-sm-12 mui-col-xs-12">
+				<div class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<div class="mui-media-body">
+							<b>雪暴</b><span>简介</span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- 热度 -->
+		<div class="mui-row">
+			<div class="mui-col-sm-8 mui-col-xs-12">
+				<div class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<div class="mui-media-body">
+							<img class="mui-icon-circle" src="http://172.16.120.5:8848/demoserver/img/redu.png">
+							<b>热度5217</b><span>爱奇艺热度榜第18名</span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+		<!--  -->
+		<div class="mui-row">
+			<div class="mui-col-sm-7 mui-col-xs-12">
+				<div class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<div class="mui-media-body">
+							<b>46.4万人已评.</b><span>8.0分. 我要评分</span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+
+<div class="mui-bar-cnxh">
+ <h4>猜你喜欢</h4>
+		
+		<div class="mui-bar-playvideo">
+			<div class="mui-bar-playvideo-p">
+				<img src="http://172.16.120.5:8848/demoserver/img/playvideo1.jpg">
+			</div>
+			<div class="mui-bar-playvideo-p">
+				<b>流浪地球</b>
+				<p></p>
+				<p></p>
+				<p>中国科幻电影元年</p>
+				<p>热度3699</p>
+			</div>
+		</div>
+		
+
+		<div class="mui-bar-playvideo">
+			<div class="mui-bar-playvideo-p">
+				<img src="http://172.16.120.5:8848/demoserver/img/playvideo2.jpg">
+			</div>
+			<div class="mui-bar-playvideo-p">
+				<b>一代宗师</b>
+				<p></p>
+				<p></p>
+				<p>章子怡梁朝伟暧昧情愫</p>
+				<p>热度1848</p>
+			</div>
+		</div>
+
+		<div class="mui-bar-playvideo">
+			<div class="mui-bar-playvideo-p">
+				<img src="http://172.16.120.5:8848/demoserver/img/playvideo3.jpg">
+			</div>
+			<div class="mui-bar-playvideo-p">
+				<b>集结号</b>
+				<p></p>
+				<p></p>
+				<p>冯小刚揭示人性与战争</p>
+				<p>热度1826</p>
+			</div>
+		</div>
+
+		<div class="mui-bar-playvideo">
+			<div class="mui-bar-playvideo-p">
+				<img src="http://172.16.120.5:8848/demoserver/img/playvideo4.jpg">
+			</div>
+			<div class="mui-bar-playvideo-p">
+				<b>我想和你好好的</b>
+				<p></p>
+				<p></p>
+				<p>倪妮冯绍刚的作死爱情</p>
+				<p>热度2031</p>
+			</div>
+		</div>	
+</div>
+
+
+
+	</body>
+
+</html>

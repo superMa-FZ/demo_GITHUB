@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/vip_index.css" rel="stylesheet" />
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				mui('.mui-scroll').on('tap', 'a.mui-control-item', function() {
+					var href = this.getAttribute("href");
+					if (href) {
+						var self = plus.webview.currentWebview();
+						var subExist = plus.webview.getWebviewById(href);
+						if (subExist) {
+							plus.webview.close(subExist);
+						}
+						var sub = plus.webview.create(href, href);
+						self.append(sub);
+					}
+				});
+				});
+		</script>		
+	</head>
+	<body>
+		<nav class="nav-top">
+			<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+				<div class="mui-scroll">
+					<a href="index.html" class="mui-control-item">
+						精选
+					</a>
+					<a href="vip_index_club.html" class="mui-control-item mui-active">
+						会员俱乐部
+					</a>
+					<a class="mui-control-item">
+						电影
+					</a>
+					<a class="mui-control-item">
+						电视剧
+					</a>
+					<a class="mui-control-item">
+						综艺
+					</a>
+					<a class="mui-control-item">
+						动漫
+					</a>
+					<a class="mui-control-item">
+						儿童
+					</a>
+					<a class="mui-control-item">
+						演唱会
+					</a>
+					<a class="mui-control-item">
+						纪录片
+					</a>
+				</div>
+			</div>
+		</nav>
+		<h2 class="club_title">会员俱乐部</h2>
+	</body>
+
+</html>

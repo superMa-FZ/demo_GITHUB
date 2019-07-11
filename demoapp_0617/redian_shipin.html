@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/redian_shipin.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<link href="css/iconfont2.css" rel="stylesheet" />
+		<script src="js/iconfont.js"></script>
+		<script src="js/vue.min.js"></script>
+		<script src="js/mui.js"></script>
+
+		<script type="text/javascript">
+			mui.init({
+				gestureConfig: {
+					tap: true, //默认为true
+					doubletap: true, //默认为false
+					longtap: true, //默认为false
+					swipe: true, //默认为true
+					drag: true, //默认为true
+					hold: false, //默认为false，不监听
+					release: false //默认为false，不监听
+				}
+			})
+			mui.plusReady(function() {
+				mui('.mui-video').on('tap', '.mui-movie-row-item video', function() {
+					var urlx = this.getAttribute('url');
+					var weizhi = this.getAttribute('weizhi');
+					var x = parseInt(weizhi);
+					//接受参数,获得参数值
+					//获得视频对象
+					var video = mui('.mui-video video')[x];
+					//设置视频路径
+					video.src = urlx;
+					//预加载视频.
+					video.play();
+				});
+
+				/* 	mui('.mui-content .mui-movie-row').on('tap', '.mui-icon-more', function() {
+						mui('.mui-popover').popover('toggle');
+					}); */
+
+
+				mui('.mui-content').on('swiperight', '.mui-movie-row', function() {
+					var cityName = 'redian_sub.html';
+					var right = 1;
+					//获取父页面A.html
+					var main = plus.webview.getWebviewById("redian.html");
+					//自定义事件,事件名为changeCity
+					mui.fire(main, 'changeCity', {
+						cityName: cityName,
+						right: right
+					});
+				});
+				mui('.mui-content').on('swipeleft', '.mui-movie-row', function() {
+					mui.alert('尚未开发，敬请期待');
+				});
+
+			});
+		</script>
+
+		<script src="js/jquery-1.7.js"></script>
+		<script type="text/javascript">
+			function toshare() {
+				$(".am-share").addClass("am-modal-active");
+				if ($(".sharebg").length > 0) {
+					$(".sharebg").addClass("sharebg-active");
+				} else {
+					$("body").append('<div class="sharebg"></div>');
+					$(".sharebg").addClass("sharebg-active");
+				}
+				$(".sharebg-active,.share_btn").click(function() {
+					$(".am-share").removeClass("am-modal-active");
+					setTimeout(function() {
+						$(".sharebg-active").removeClass("sharebg-active");
+						$(".sharebg").remove();
+					}, 300);
+				})
+			}
+		</script>
+
+	</head>
+
+	<body>
+		<div id='content' class="mui-content mui-movie">
+			<div class="mui-movie-row mui-video " v-for="sp in shipin" style="margin-bottom: 20px;">
+				<li class="mui-movie-row-item">
+					<p class="mui-p">{{sp.videoJianjie}}</p>
+					<video :weizhi='sp.videoWeizhi' :url="sp.videoUrl" src="" :poster='sp.videoImg' width="100%" height="100%" controls autoplay></video>
+				</li>
+				<li class="mui-movie-row-item mui-span">
+					<!-- <a href="#popover" id="openPopover" class="mui-pull-right mui-icon iconfont icon-gengduo"></a> -->
+					<span class="mui-pull-right mui-badge mui-badge-inverted" onClick="toshare()">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-fenxiang"></use>
+						</svg>
+						2</span>
+					<span class="mui-pull-right mui-badge mui-badge-inverted">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-pinglun"></use>
+						</svg>
+						1</span>
+					<span class="mui-pull-right mui-badge mui-badge-inverted">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-dianzan"></use>
+						</svg>
+						3</span>
+				</li>
+				<p>{{sp.videoTitle}}</p>
+			</div>
+		</div>
+		<div class="am-share">
+			<h3 class="am-share-title">分享至</h3>
+			<ul class="am-share-sns">
+				<li><a href="#" id="xinlangweibo">
+						<svg class="icon" aria-hidden="true" style="height: 70px; width: 80px;">
+							<use xlink:href="#icon-weibo"></use>
+						</svg><span>新浪微博</span>
+					</a>
+				</li>
+				<li><a href="#">
+						<svg class="icon" aria-hidden="true" style="height: 65px; width: 80px; margin-top: 8px;">
+							<use xlink:href="#icon-zhifubao"></use>
+						</svg><span>支付宝</span>
+					</a>
+				</li>
+				<li><a href="#">
+						<svg class="icon" aria-hidden="true" style="height: 65px; width: 80px; margin-top: 8px;">
+							<use xlink:href="#icon-iconweixinpengyouquan"></use>
+						</svg><span>朋友圈</span>
+					</a>
+				</li>
+				<li><a href="#">
+						<svg class="icon" aria-hidden="true" style="height: 75px; width: 80px;">
+							<use xlink:href="#icon-qq"></use>
+						</svg><span>QQ</span>
+					</a>
+				</li>
+			</ul>
+			<div class="am-share-footer"><button class="share_btn">取消</button></div>
+		</div>
+		<!-- <div id="popover" class="mui-popover" style="width: 80px;">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell"><a href="#">转发</a></li>
+				<li class="mui-table-view-cell"><a href="#">biu</a></li>
+				<li class="mui-table-view-cell"><a href="#">收藏</a></li>
+				<li class="mui-table-view-cell"><a href="#">举报</a></li>	
+			</ul>
+		</div> -->
+
+	</body>
+	<script>
+		var vue = new Vue({
+			el: '#content',
+			data: {
+				shipin: []
+			}
+		})
+		//AJAX加载服务器中的数据(静态资源)
+		mui.get('https://192.168.43.99:1443/videoShipin.html', function(data) {
+			//返回的json格式返回给vue对象
+			vue.shipin = data.information;
+
+		}, 'json');
+	</script>
+
+</html>

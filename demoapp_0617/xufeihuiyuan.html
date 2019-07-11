@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/iconfontgeren.css" rel="stylesheet" />
+		<link href="css/xufeihuiyuan.css" rel="stylesheet" />
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				gestureConfig: {
+					tap: true, //默认为true
+					doubletap: true, //默认为false
+					longtap: true, //默认为false
+					swipe: true, //默认为true
+					drag: true, //默认为true
+					hold: false, //默认为false，不监听
+					release: false //默认为false，不监听
+				}
+			})
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<span class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></span>
+			<h2 class="mui-title">黄金VIP会员</h2>
+		</header>
+		<div class="mui-content">
+			<div class="mui-row mui-row-huiyuan">
+				<div class="mui-col-sm-12 mui-col-xs-12 shiyong">
+					<span>黄金VIP会员</span> <span>（电脑、iPad、手机均可使用）</span>
+				</div>
+				<div id="year" class="mui-col-sm-4 mui-col-xs-4 huiyuan">
+					<a href="" class="mui-row">
+						<span>连续包年</span><br />
+						<i>¥178</i>
+					</a>
+				</div>
+				<div id="month" class="mui-col-sm-4 mui-col-xs-4 huiyuan">
+					<a href="" class="mui-row">
+						<span>连续包季</span><br />
+						<i>¥45</i>
+					</a>
+				</div>
+				<div id="day" class="mui-col-sm-4 mui-col-xs-4 huiyuan">
+					<a href="" class="mui-row">
+						<span>连续包月</span><br />
+						<i>¥15</i>
+					</a>
+				</div>
+				<div class="mui-col-sm-12 mui-col-xs-12 shiyong">
+					<div class="mui-input-row mui-checkbox mui-left">
+						<label id="zidongxufei">到期自动续费一年，可随时取消</label>
+						<input name="checkbox1" value="Item 1" type="checkbox">
+					</div>
+				</div>
+			</div>
+			<div class="mui-row">
+				<ul class="mui-table-view mui-table-view-radio">
+					<li class="mui-table-view-cell">
+						<a>
+							<i class="mui-icon iconfont icon-weixinzhifu mui-navigate-right"></i>
+							<span>微信支付</span>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-selected">
+						<a>
+							<i class="mui-icon iconfont icon-zhifubao mui-navigate-right"></i>
+							<span>支付宝支付</span>
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>
+							<i class="mui-icon iconfont icon-yinhangqia mui-navigate-right"></i>
+							<span>银行支付</span>
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>
+							<i class="mui-icon iconfont icon-shoujizhifu mui-navigate-right"></i>
+							<span>话费支付</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="mui-row">
+				<div class="mui-table-view zhifukuang">
+					<div class="mui-col-xs-12 mui-table-view-cell">
+						<i>总计:</i><i id="jine"></i>
+					</div>
+					<div id="zhifu" class="mui-col-xs-12 mui-table-view-cell zhifu">
+						<span>确认支付</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var info = document.getElementById("zidongxufei");
+		var jine = document.getElementById("jine");
+		var zhifu = document.getElementById("zhifu");
+		document.getElementById("year").addEventListener('tap', function() {
+			info.innerText = '到期自动续费一年，可随时取消';
+			jine.innerText = '';
+			jine.innerText = '¥178';
+		});
+		document.getElementById("month").addEventListener('tap', function() {
+			info.innerText = '到期自动续费3个月，可随时取消';
+			jine.innerText = '';
+			jine.innerText = '¥45';
+		});
+		document.getElementById("day").addEventListener('tap', function() {
+			info.innerText = '到期自动续费1个月，可随时取消';
+			jine.innerText = '';
+			jine.innerText = '¥15';
+		});
+		document.getElementById("zhifu").addEventListener('tap', function() {
+			mui.alert('支付成功！', '支付', function() {
+			});
+		});
+	</script>
+</html>

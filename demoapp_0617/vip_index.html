@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/vip_index.css" rel="stylesheet" />
+		<script src="js/mui.js"></script>
+		<script src="js/vue.min.js"></script>
+		<!-- 张家瑞-->
+		<link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet" href="css/tiksluscarousel.css" />
+		<link rel="stylesheet" href="css/github.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<!--<link rel="stylesheet" href="css/lrtk.css" />-->
+		<!-- //焦点轮播引用 张家瑞-->
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/tiksluscarousel.js"></script>
+		<script type="text/javascript" src="js/rainbow.min.js"></script>
+	
+		<script type="text/javascript">
+			//嵌入子页面
+			mui.init({
+				//子页面标志			
+				gestureConfig: {
+					tap: true, 
+					doubletap: true, 
+					longtap: true, 
+					swipe: true, 
+					drag: true, 
+					hold: false, 
+					release: false 
+				}
+			});
+
+			//页面加载完后运行
+			mui.plusReady(function() {
+				mui('.mui-scroll').on('tap', 'a.mui-control-item', function() {
+					var href = this.getAttribute("href");
+					if (href) {
+						var self = plus.webview.currentWebview();
+						var subExist = plus.webview.getWebviewById(href);
+						if (subExist) {
+							plus.webview.close(subExist);
+						}
+						var sub = plus.webview.create(href, href);
+						self.append(sub);
+					}
+				});
+				
+				mui('.mui-movie-today-row').on('tap', '.mui-movie-today-row-item', function() {
+					var url = this.getAttribute("url");
+					var id=this.getAttribute("id");
+					var name = this.getAttribute('name');
+					var type = this.getAttribute('type');
+					var introduc = this.getAttribute("introduc");
+					mui.post('https://192.168.43.249:1443/vipindex.html', {
+					
+					}, function(data) {
+						//服务器返回响应
+						if(data.success){
+							mui.toast("查询成功！");
+						}else{
+							mui.toast(data.error);
+						}
+					}, 'json');										
+					if (url) {
+						mui.openWindow({
+							url: 'index_playvideo.html',
+							extras: {
+								url: url,
+								uid: id,
+								videoName: name,
+								type: type,
+								introduc: introduc
+							}
+						});
+					}
+				});
+				
+				mui('.mui-movie-row').on('tap', '.mui-movie-row-item', function() {
+					var url = this.getAttribute("url");
+					var id=this.getAttribute("id");
+
+					var name = this.getAttribute('name');
+					var type = this.getAttribute('type');
+					var introduc = this.getAttribute("introduc");
+					if (url) {
+						mui.openWindow({
+							url: 'index_playvideo.html',
+							extras: {
+								url: url,
+								uid: id,
+								videoName: name,
+								type: type,
+								introduc: introduc
+							}
+						});
+					}
+				});				
+				var gallery = mui('.mui-slider');
+				gallery.slider({
+					interval: 5000
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<nav class="nav-top">
+			<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+				<div class="mui-scroll">
+					<a href="index.html" class="mui-control-item mui-active">
+						精选
+					</a>
+					<a href="vip_index_club.html" class="mui-control-item">
+						会员俱乐部
+					</a>
+					<a class="mui-control-item">
+						电影
+					</a>
+					<a class="mui-control-item">
+						电视剧
+					</a>
+					<a class="mui-control-item">
+						综艺
+					</a>
+					<a class="mui-control-item">
+						动漫
+					</a>
+					<a class="mui-control-item">
+						儿童
+					</a>
+					<a class="mui-control-item">
+						演唱会
+					</a>
+					<a class="mui-control-item">
+						纪录片
+					</a>
+				</div>
+			</div>
+		</nav>
+		<div id="mui-content" class="mui-content">
+			<div class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img :src="slider[slider.length-1]" /></a></div> -->
+					<div class="mui-slider-item " v-for="s in vipSlider"><a href="#"><img :src="s.sliderImg"></a></div>
+					<!-- <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img :src="slider[0]" /></a></div> -->
+				</div>
+			</div>
+			<div class="mui-vip-row">
+				<div class="mui-vip-row-item mui-active">
+					<a>
+						<p>优选商品<br />618折上折</p>
+					</a>
+				</div>
+				<div class="mui-vip-row-item">
+					<a>
+						<p>0元开抢<br />限时秒杀</p>
+					</a>
+				</div>
+				<div class="mui-vip-row-item">
+					<a>
+						<p>每日必领<br />专属海量福利</p>
+					</a>
+				</div>
+				<div class="mui-vip-row-item mui-active">
+					<a>
+						<p>VIP新片<br />今日推荐</p>
+					</a>
+				</div>
+			</div>
+			<div class="mui-movie-today">
+				<h4>今日推荐</h4>
+				<div class="mui-movie-today-row">
+					<li class="mui-movie-today-row-item" :id="t.videoId" :name="t.videoName" :type="t.videoType" :describe="t.videoDescribe"
+					 :introduc="t.videoIntroduc" v-bind:url="t.videoUrl" v-for="t in todayRecommend">
+						<img :src="t.videoImg" />
+						<p>{{t.videoName}}</p>
+						<p>{{t.videoDescribe}}</p>
+					</li>
+				</div>
+			</div>
+			<div class="mui-movie">
+				<h4>正在热播..</h4>
+				<div class="mui-movie-row">
+					<li class="mui-movie-row-item" :id="h.videoId" :name="h.videoName" :type="h.videoType" :describe="h.videoDescribe"
+					 :introduc="h.videoIntroduc" v-bind:url="h.videoUrl" v-for="h in hotingMovies">
+						<img :src="h.videoImg" />
+						<p>{{h.videoName}}</p>
+						<p>{{h.videoDescribe}}</p>
+					</li>
+				</div>
+			</div>
+
+			<!--张家瑞-->
+			<script>
+				var marqueeContent = new Array(); //滚动
+				marqueeContent[0] = '<font color="#0000CC">少年派 </font><a href=# target=_blank class="f12red">双簧父女智斗老妈</a><br>';
+				marqueeContent[1] = '<font color="#0000CC">新说唱</font><a href=# target=_blank class="f12red">邓子期链子发太多急哭</a><br>';
+				marqueeContent[2] = '<font color="#0000CC">带爸留学</font><a href=# target=_blank class="f12red">老黄林约法3章</a><br>';
+				marqueeContent[3] = '<font color="#0000CC">唱作人</font><a href=# target=_blank class="f12red">复活赛上下季不服互评</a><br>';
+				var marqueeInterval = new Array(); //定义一些常用的变量
+				var marqueeId = 0;
+				var marqueeDelay = 2000;
+				var marqueeHeight = 20;
+				//定义一些要使用到的函数
+				function initMarquee() {
+					var str = marqueeContent[0];
+					document.write('<div id=marqueeBox style="overflow:hidden;height:' + marqueeHeight +
+						'px" onmouseover="clearInterval(marqueeInterval[0])" onmouseout="marqueeInterval[0]=setInterval(\'startMarquee()\',marqueeDelay)"><div>' +
+						str + '</div></div>');
+					marqueeId++;
+					marqueeInterval[0] = setInterval("startMarquee()", marqueeDelay);
+				}
+				function startMarquee() {
+					var str = marqueeContent[marqueeId];
+					marqueeId++;
+					if (marqueeId >= marqueeContent.length) marqueeId = 0;
+					if (marqueeBox.childNodes.length == 1) {
+						var nextLine = document.createElement('DIV');
+						nextLine.innerHTML = str;
+						marqueeBox.appendChild(nextLine);
+					} else {
+						marqueeBox.childNodes[0].innerHTML = str;
+						marqueeBox.appendChild(marqueeBox.childNodes[0]);
+						marqueeBox.scrollTop = 0;
+					}
+					clearInterval(marqueeInterval[1]);
+					marqueeInterval[1] = setInterval("scrollMarquee()", 20);
+				}
+				function scrollMarquee() {
+					marqueeBox.scrollTop++;
+					if (marqueeBox.scrollTop % marqueeHeight == (marqueeHeight - 1)) {
+						clearInterval(marqueeInterval[1]);
+					}
+				}
+				initMarquee();
+			</script>
+
+			<!--张家瑞jdlb-->
+			<div id="fruits" class="mui-mui-jdlb">
+				<h4>即将上线..</h4>
+				<!-- //焦点轮播	 -->
+				<div class="mui-beAboutOnline-group mui-beAboutOnline-loop">
+					<ul>
+						<li><img src="http://192.168.43.99:8848/demoserver/vip_img/aa1.jpg" /></li>
+						<li><img src="http://192.168.43.99:8848/demoserver/vip_img/aa2.jpg" /></li>
+						<li><img src="http://192.168.43.99:8848/demoserver/vip_img/aa3.jpg" /></li>
+						<li><img src="http://192.168.43.99:8848/demoserver/vip_img/aa4.jpg" /></li>
+						<li><img src="http://192.168.43.99:8848/demoserver/vip_img/aa5.jpg" /></li>
+						<li><img src="http://192.168.43.99:8848/demoserver/vip_img/aa6.jpg" /></li>
+						<li><img src="http://192.168.43.99:8848/demoserver/vip_img/aa7.jpg" /></li>
+						<li><img src="http://192.168.43.99:8848/demoserver/vip_img/aa8.jpg" / /></li>
+					</ul>
+				</div>
+			</div>
+			<!-- //轮播结束 -->
+
+		</div>
+	</body>
+	<script>
+		var vue = new Vue({
+			el: "#mui-content",
+			data: {
+				todayRecommend: [],
+				hotingMovies: [],
+				//vipMovies: [],
+				vipSlider: []
+			}
+		})
+		mui.get('https://192.168.43.99:1443/vip_index.html', function(data) {
+			vue.hotingMovies=data.listHotingMovies;
+			vue.todayRecommend=data.listTodayRecommend;
+			vue.vipSlider=data.vipindexSlider;
+			//vue.vipMovies=data.vipVideos;
+			//alert(data);
+		}, 'json');
+	</script>
+
+	<!--张家瑞-->
+	<script language="javascript">
+		$(document).ready(function() {
+			$("#fruits").tiksluscarousel({
+				width: 480,
+				height: 150,
+				nav: 'thumbnails',
+				current: 1,
+				type: 'zoom'
+			});
+		});
+	</script>
+
+</html>

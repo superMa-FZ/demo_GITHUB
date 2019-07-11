@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/redian_sub.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<link href="css/iconfont2.css" rel="stylesheet" />
+		<script src="js/iconfont.js"></script>
+		<script src="js/mui.js"></script>
+		<script src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			/* 			var subPages = [{
+							url: 'redian_sub.html',
+							id: 'redian_sub.html',
+							styles: styles
+						}]; */
+			var thisHtml = "redian_sub.html";
+
+			mui.init({
+				//子网页对象
+				gestureConfig: {
+					tap: true, //默认为true
+					doubletap: true, //默认为false
+					longtap: true, //默认为false
+					swipe: true, //默认为true
+					drag: true, //默认为true
+					hold: false, //默认为false，不监听
+					release: false //默认为false，不监听
+				}
+			});
+
+			mui.plusReady(function() {
+				mui('.mui-content').on('swipeleft', '.mui-movie-row', function() {
+					var cityName = 'redian_shipin.html';
+					var right = 2;
+					//获取父页面A.html
+					var main = plus.webview.getWebviewById("redian.html");
+					//自定义事件,事件名为changeCity
+					mui.fire(main, 'changeCity', {
+						cityName: cityName,
+						right: right
+					});
+				});
+				mui('.mui-content').on('swiperight', '.mui-movie-row', function() {
+					var cityName = 'redian_guanzhu.html';
+					var right = 0;
+					//获取父页面A.html
+					var main = plus.webview.getWebviewById("redian.html");
+					//自定义事件,事件名为changeCity
+					mui.fire(main, 'changeCity', {
+						cityName: cityName,
+						right: right
+					});
+				});
+				mui(".mui-movie-row").on("tap", "li video", function() {
+					var urlx = this.getAttribute("url");
+					var i;
+					var weizhi = this.getAttribute('weizhi');
+					var x = parseInt(weizhi);
+					//接受参数,获得参数值
+					//获得视频对象
+					var all = mui('.mui-video video')
+					for (i = 0; i < all.length; i++) {
+						all[i].pause();
+					}
+					var video = mui('.mui-video video')[x];
+					//设置视频路径
+					video.src = urlx;
+					//预加载视频.
+					video.play();
+				});
+			});
+		</script>
+
+		<script src="js/jquery-1.7.js"></script>
+		<script type="text/javascript">
+			function toshare() {
+				$(".am-share").addClass("am-modal-active");
+				if ($(".sharebg").length > 0) {
+					$(".sharebg").addClass("sharebg-active");
+				} else {
+					$("body").append('<div class="sharebg"></div>');
+					$(".sharebg").addClass("sharebg-active");
+				}
+				$(".sharebg-active,.share_btn").click(function() {
+					$(".am-share").removeClass("am-modal-active");
+					setTimeout(function() {
+						$(".sharebg-active").removeClass("sharebg-active");
+						$(".sharebg").remove();
+					}, 300);
+				})
+			}
+		</script>
+		
+	</head>
+
+	<body>
+		<div id='content' class="mui-content mui-movie">
+			<div v-for="s in kandian"  style="margin-bottom: 10px;">
+				<div class="mui-movie-row  mui-video mui-video-one" right='redian_shipin.html'>
+					<li class="mui-movie-row-item" >
+						<span class="mui-p">{{s.videoBriefIntroduction}}</span>
+						<video :url='s.videoUrl' :weizhi="s.videoWeizhi"  src="" :poster="s.videoImg" width="100%" height="100%" controls autoplay></video>
+					</li>
+					<p>{{s.videoTitle}}</p>
+					<li class="mui-movie-row-item-lsi mui-span">
+						<span class="mui-pull-right mui-badge mui-badge-inverted" onClick="toshare()">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-fenxiang"></use>
+							</svg>
+						2</span>
+						<span class="mui-pull-right mui-badge mui-badge-inverted">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-pinglun"></use>
+							</svg>
+							1</span>
+						<span class="mui-pull-right mui-badge mui-badge-inverted">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-dianzan"></use>
+							</svg>
+							3</span>
+					</li>
+				</div>
+
+				<div class="mui-movie-row  mui-video mui-video-one " right='redian_shipin.html'>
+					<li class="mui-movie-row-item ">
+						<p class="mui-p">{{s.videoBriefIntroduction2}}</p>
+						<video :url="s.videoUrl2" :weizhi="s.videoWeizhi2" src="" :poster="s.videoImg2" width="100%" height="100%" controls autoplay></video>
+					</li>
+					<p>{{s.videoTitle2}}</p>
+					<li class="mui-movie-row-item-lsi mui-span">
+						<span class="mui-pull-right mui-badge mui-badge-inverted" onClick="toshare()">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-fenxiang"></use>
+							</svg>
+							2</span>
+						<span class="mui-pull-right mui-badge mui-badge-inverted">
+							<svg class="icon" aria-hidden="true" onClick="toshare()">
+								<use xlink:href="#icon-pinglun"></use>
+							</svg>
+							1</span>
+						<span class="mui-pull-right mui-badge mui-badge-inverted">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-dianzan"></use>
+							</svg>
+							3</span>
+					</li>
+				</div>
+				<!-- 两个一个视频独占一行穿插两个视频共占一行 -->
+
+				<div class="mui-movie-row  mui-video " style="margin-bottom: 20px;">
+					<div class=" mui-col-sm-6 mui-video-two" right='redian_shipin.html'>
+						<div class=" mui-col-sm-11">
+							<li class="mui-movie-row-item">
+								<p class="mui-p">{{s.videoBriefIntroduction3}}</p>
+								<video :url="s.videoUrl3" :weizhi="s.videoWeizhi3" src="" :poster="s.videoImg3" style="width: 100%; height: 300px; object-fit:fill" controls autoplay></video>
+							</li>
+						</div>
+					</div>
+
+					<div class=" mui-col-sm-6 mui-video-two" right='redian_shipin.html'>
+						<div class=" mui-col-sm-11">
+							<li class="mui-movie-row-item">
+								<p class="mui-p">{{s.videoBriefIntroduction4}}</p>
+								<video :url="s.videoUrl4":weizhi="s.videoWeizhi4" src="" :poster="s.videoImg4" style="width: 100%; height: 300px; object-fit:fill" controls autoplay></video>
+							</li>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- <div id='content' class="mui-content mui-movie">
+			<div class="mui-movie-row" right='redian_shipin.html'>
+				<li class="mui-movie-row-item" v-for="kandians in kandian">
+					<img :src="kandians.img1" />
+					<img :src="kandians.img2" />
+					<img :src="kandians.img3" />
+					<p class="mui-movie-row-item-p1">{{kandians.p1}}</p>
+					<p class="mui-movie-row-item-p2">{{kandians.p2}}</p>
+				</li>
+			</div>
+		</div> -->
+
+		<!-- 分享弹出框 -->
+		<div class="am-share">
+			<h3 class="am-share-title">分享至</h3>
+			<ul class="am-share-sns">
+				<li><a href="#" id="xinlangweibo">
+						<svg class="icon" aria-hidden="true" style="height: 70px; width: 80px;">
+							<use xlink:href="#icon-weibo"></use>
+						</svg><span>新浪微博</span>
+					</a>
+				</li>
+				<li><a href="#">
+						<svg class="icon" aria-hidden="true" style="height: 65px; width: 80px; margin-top: 8px;">
+							<use xlink:href="#icon-zhifubao"></use>
+						</svg><span>支付宝</span>
+					</a>
+				</li>
+				<li><a href="#">
+						<svg class="icon" aria-hidden="true" style="height: 65px; width: 80px; margin-top: 8px;">
+							<use xlink:href="#icon-iconweixinpengyouquan"></use>
+						</svg><span>朋友圈</span>
+					</a>
+				</li>
+				<li><a href="#">
+						<svg class="icon" aria-hidden="true" style="height: 75px; width: 80px;">
+							<use xlink:href="#icon-qq"></use>
+						</svg><span>QQ</span>
+					</a>
+				</li>
+			</ul>
+			<div class="am-share-footer"><button class="share_btn">取消</button></div>
+		</div>
+	</body>
+
+	<script>
+		var vue = new Vue({
+			el: '#content',
+			data: {
+				kandian: []
+			}
+		});
+		//AJAX加载服务器中的数据(静态资源)
+		mui.get('https://192.168.43.99:1443/videoinformationsub.html', function(data) {
+			//返回的json格式返回给vue对象
+			vue.kandian = data.information;
+		}, 'json');
+	</script>
+</html>

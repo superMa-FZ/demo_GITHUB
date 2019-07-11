@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/playvideo.css" rel="stylesheet" />
+		<script src="js/vue.min.js"></script>
+		<script src="js/mui.js"></script>		
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				//获得当前窗口对象
+				var self = plus.webview.currentWebview();
+				//获得接收参数
+				var url = self.url;
+				var id=self.uid;
+				/* mui.alert(id); */
+				var name= self.name;
+				var type=self.type;
+				var introduc=self.introduc;	
+				
+				mui.alert(url);
+				//获得视频、名称、类型、简介对象		
+		/* 		var videorwh= mui('.mui-video video')[0];
+				var namerwh = mui('.mui-video-detail p')[0];
+				var typerwh= mui('.mui-video-detail p')[1];
+				var introducrwh = mui('.mui-video-detail p')[2];
+				var idrwh = mui('.mui-video-detail p')[3]; */
+				//设置新的视频、名称、类型、简介路径
+			  //  videorwh.src = url;	
+				
+					//播放视频
+				//videorwh.play();
+				
+			/* 	namerwh.innerHTML=name;
+				idrwh.innerHTML=id;
+				typerwh.innerHTML=type;
+				introducrwh.innerHTML=introduc;	 */
+						
+			})
+		</script>
+	</head>
+	<body>
+		<h2>
+			播放视频
+		</h2>
+		<div id="mui-content" class="mui-content">
+			<div class="mui-video">
+				<video src="https://192.168.43.249:1443/video/hkjh.mp4" width="100%" height="180" controls autoplay></video>
+			</div>
+			<div class="mui-video-detail">
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+			</div>
+		</div>
+	</body>
+	<script>
+		var vue = new Vue({
+			el: "#mui-movie-detail",
+			data: {
+				videoID: [],
+				//dmMovies: []
+			}
+		})
+/* 		mui.get('https://192.168.43.249:1443/vipindex.html', function(data) {
+			vue.videoID = data.listvipvideo;
+		}, 'json'); */
+	</script>
+</html>

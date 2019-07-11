@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/wodexiazai.css" rel="stylesheet" />
+		<script src="js/mui.js"></script>
+		<script src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			mui.plusReady(function() {
+				//mui.alert(localStorage.getItem("userAccountNumber"));
+
+				/* 			mui.post('https://192.168.43.99:1443/WatchingHistorSelect.html', {
+					accountNumber: localStorage.getItem("userAccountNumber"),
+				}, function(data) {
+					if (data.information) {
+                      vue.guankanlishi =data.information;
+					} else {
+						mui.toast("登录失败，用户名或密码错误！");
+					}
+				}, 'json'); */
+
+				mui('.mui-content').on('tap', 'a', function() {
+					//获得视频路径
+					//判断是否获取url
+					//打开一个新窗口
+					var videoName = this.getAttribute("videoName")
+					mui.openWindow({
+						url: 'index_playvideo.html',
+						extras: {
+							url: "http://192.168.43.99:8080/video/c1.mp4",
+							videoName: videoName
+						}
+					});
+
+				});
+
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-row mui-row-toubu mui-bar mui-bar-nav mui-bar-transparent">
+			<h3 align="center">观看历史</h3>
+			<div class="mui-input-row mui-checkbox mui-left">
+				<label>过滤掉已结束直播</label>
+				<input name="checkbox1" value="Item1" type="checkbox" checked>
+			</div>
+			<div class="mui-input-row mui-checkbox mui-left">
+				<label>过滤掉短视频</label>
+				<input name="checkbox2" value="Item2" type="checkbox" checked>
+			</div>
+			<h3>更早</h3>
+		</div>
+		<div class="mui-lishi" id="mui-lishi">
+			<ul class="mui-table-view mui-content">
+				<a href="">
+					<li class="mui-table-view-cell mui-row" v-for="movie in guankanlishi" :videoName="movie.videoTitle">
+						<div class="mui-col-sm-4 mui-col-xs-4">
+							<img :src="movie.videoImg">
+						</div>
+						<div class="mui-col-sm-8 mui-col-xs-8">
+							<p class="mui-col-sm-12 mui-col-xs-12">{{movie.videoTitle}}</p>
+							<span class="mui-col-sm-12 mui-col-xs-12">剩余：{{movie.videoRemainingTime}}</span>
+						</div>
+					</li>
+				</a>
+			</ul>
+		</div>
+	</body>
+	<script>
+		//创建负责数据绑定的vue对象
+		var vue = new Vue({
+			el: "#mui-lishi",
+			data: {
+				guankanlishi: []
+			}
+		})
+		//AJAX加载服务器中的数据(静态资源)
+		mui.post('https://192.168.43.99:1443/WatchingHistorSelect.html', {
+			accountNumber: localStorage.getItem("userAccountNumber"),
+		}, function(data) {
+			if (data.information) {
+				vue.guankanlishi = data.information;
+			} else {
+				mui.toast("登录失败，用户名或密码错误！");
+			}
+		}, 'json');
+	</script>
+
+</html>

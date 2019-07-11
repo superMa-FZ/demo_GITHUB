@@ -1,0 +1,82 @@
+.mui-bar-nav {
+	height: 50px;
+	background-color: #222222;
+}
+
+.mui-bar-nav div.mui-title,
+.mui-icon {
+	color: white;
+	font-size: 24px;
+
+}
+
+/* #loginer form{
+	background-color: whitesmoke;
+} */
+#loginer {
+	position: relative;
+	width: 70%;
+	min-width: 300px;
+	margin-top: 10px;
+	margin: 60px auto 10px;
+	font-size: 18px;
+}
+
+.mui-icon-foot .icon {
+	height: 4em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+	width: 19%;
+	margin-top: 50px;
+	margin-left: 15px;
+}
+
+#loginer form div.mui-input-row {
+	margin: 40px auto;
+	border-bottom: solid 1px #EFEFF4;
+}
+
+.mui-group {
+	margin-top: 100px;
+}
+
+.mui-button-row button {
+	border-color: white;
+	font-size: 18px;
+}
+.mui-group .mui-button-row-zhuce .mui-btn-green{
+	margin-top: 20px;
+	border-radius: 15px;
+	font-size: 20px;
+}
+.other-way-login {
+	position: relative;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin-top: 170px;
+}
+
+.other-way-login .line {
+	display: inline-block;
+	width: 150px;
+	border: 1px solid whitesmoke;
+}
+
+.other-way-login .txt {
+	vertical-align: middle;
+	vertical-align: -20%;
+	margin: 0 30px;
+}
+
+.mui-icon-foot {
+	position: relative;
+	float: left;
+	width: 20%;
+}
+
+.mui-bar-as{
+	position: relative;
+	top: 100px;
+}

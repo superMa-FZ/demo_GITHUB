@@ -1,0 +1,16 @@
+body{
+	background-color:#F7F7F7;
+}
+.mui-table-view-cell{
+	line-height: 50px;
+	height: 70px;
+	margin-bottom: 10px;
+}
+.mui-table-view-cell a{
+	font-size: 18px;
+}
+.mui-info{
+	float: right;
+	padding-right: 25px;
+	text-align: right;
+}
